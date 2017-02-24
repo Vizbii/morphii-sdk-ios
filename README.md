@@ -741,3 +741,11 @@ This object gives further details the authentication results. This object is ret
 ##### Properties
 - `isAuthenticated: Bool` : Returns if the authentication was successful.
 - `error:ReactionError?` : Returns an [AuthenticationError](#authenticationerror) object which contains more details about the authentication error.
+
+
+#### <a name="authenticationerror"></a>AuthenticationError
+This object gives further details into any errors that may have occurred during the authentication process. It contains two properties: `code` and `message`. The `code` property is a specific error code defined by the data analytics pipeline. The `message` property is a message associated with the `code` property that explains what caused the error.
+
+##### Methods
+- `code: String` : This method returns authentication error code string.
+- `message: String` : This method returns authentication error message string.
