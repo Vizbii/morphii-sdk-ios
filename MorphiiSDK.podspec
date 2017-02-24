@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MorphiiSDK"
-  s.version      = "0.0.51"
+  s.version      = "0.0.52"
   s.summary      = "An sdk that allows users to morph their own emojis."
 
   # This description is used to generate tags and improve search results.
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #
 #  s.source       = { :path => '.' }
 
-  s.source       = { :git => "https://github.com/Vizbii/morphii-sdk-ios.git", :tag => "0.0.51" }
+  s.source       = { :git => "https://github.com/Vizbii/morphii-sdk-ios.git", :tag => "0.0.52" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
