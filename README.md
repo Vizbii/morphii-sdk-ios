@@ -19,7 +19,7 @@ The Morphii SDK provides developers with the ability to add a morphii. Morphii a
 4. If you are not already using cocoapods, run pod init
 5. Add the following to your podfile
 ```
-pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.18'
+pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.57'
 ```
 6. Run pod install
 7. Add import MorphiiSDK wherever you would like to utilize the SDK
@@ -50,21 +50,21 @@ This method authenticates the developer's account with the morphii servers. It r
 ```swift
 // Swift
 override func viewDidLoad() {
-super.viewDidLoad()
-// Do any additional setup after loading the view, typically from a nib.
+  super.viewDidLoad()
+  // Do any additional setup after loading the view, typically from a nib.
 
-let service = MorphiiService.sharedInstance()
-service.authenticate(username: "user_name", password: "password", accountId: "account-id") { (result) in
-if result.isAuthenticated {
-// Authentication successful.
-// Add morphii views.
-}
-else {
-print("Authentication failed")
-print("error code: \(result.error?.code)")
-print("error message: \(result.error?.message)")
-}
-}
+  let service = MorphiiService.sharedInstance()
+  service.authenticate(username: "user_name", password: "password", accountId: "account-id") { (result) in
+    if result.isAuthenticated {
+      // Authentication successful.
+      // Add morphii views.
+    }
+    else {
+      print("Authentication failed")
+      print("error code: \(result.error?.code)")
+      print("error message: \(result.error?.message)")
+    }
+  }
 }
 ```
 
@@ -72,24 +72,22 @@ print("error message: \(result.error?.message)")
 ```objective-c
 // Objective-C
 - (void)viewDidLoad {
-[super viewDidLoad];
+  [super viewDidLoad];
 
-MorphiiService *service = [MorphiiService sharedInstance];
-[service authenticateWithUsername:@"user_name" password:@"password" accountId:@"account-id" completion:^(AuthenticationResults * _Nonnull results) {
-if (results.isAuthenticated) {
-// Authentication successful.
-// Add morphii views.
+  MorphiiService *service = [MorphiiService sharedInstance];
+  [service authenticateWithUsername:@"user_name" password:@"password" accountId:@"account-id" completion:^(AuthenticationResults * _Nonnull results) {
+    if (results.isAuthenticated) {
+      // Authentication successful.
+      // Add morphii views.
+    }
+    else {
+      // There was an error.
+      NSLog(@"Error authenticating");
+      NSLog(@"error code: %@", results.error.code);
+      NSLog(@"error message: %@", results.error.message);
+    }
+  }];
 }
-else {
-// There was an error.
-NSLog(@"Error authenticating");
-NSLog(@"error code: %@", results.error.code);
-NSLog(@"error message: %@", results.error.message);
-}
-}];
-}
-
-
 ```
 
 #### Add
@@ -101,33 +99,33 @@ This method adds a [BasicView](#basicview) to the specified container layout. Th
 // Swift
 func createBasicView(containerView: UIView) -> BasicView {
 
-// Create Project
-let project = Project(id: "my-project-id", description: "My Project Description")
+  // Create Project
+  let project = Project(id: "my-project-id", description: "My Project Description")
 
-// Create Target
-let metadata: NSDictionary? = ["value-1" : "key1", "value-2" : "key2"]
-let target = Target(id: "my-target-id", type: "question", metadata: metadata)
+  // Create Target
+  let metadata: NSDictionary? = ["value-1" : "key1", "value-2" : "key2"]
+  let target = Target(id: "my-target-id", type: "question", metadata: metadata)
 
-// Options configuration
-let options = Options(stage: "live", initialIntensity: 0.5)
+  // Options configuration
+  let options = Options(stage: "live", initialIntensity: 0.5)
 
-// Comment configuration
-let comment = Comment(show: false, required: false, maxLength: 100, label: "Comment", hintText: "Enter comment")
+  // Comment configuration
+  let comment = Comment(show: false, required: false, maxLength: 100, label: "Comment", hintText: "Enter comment")
 
-// Create User
-let properties: NSDictionary? = ["user@mailinator.com" : "email", "value-2" : "key2", "value-3" : "key3"]
-let user = User(id: "user-id", type: "external", properties: properties)
+  // Create User
+  let properties: NSDictionary? = ["user@mailinator.com" : "email", "value-2" : "key2", "value-3" : "key3"]
+  let user = User(id: "user-id", type: "external", properties: properties)
 
-// Morphii configuration.
-let morphiiConfig = MorphiiConfiguration(showName: true)
-morphiiConfig.add(id: "6202184382145363968", name: nil, weight: 1)
+  // Morphii configuration.
+  let morphiiConfig = MorphiiConfiguration(showName: true)
+  morphiiConfig.add(id: "6202184382145363968", name: nil, weight: 1)
 
-// Create the BasicViewConfiguration and add to the service.
-let config = BasicViewConfiguration(morphiiConfig: morphiiConfig, target: target, project: project, comment: comment, options: options, user: user)
+  // Create the BasicViewConfiguration and add to the service.
+  let config = BasicViewConfiguration(morphiiConfig: morphiiConfig, target: target, project: project, comment: comment, options: options, user: user)
 
-let service = MorphiiService.sharedInstance()
-let basicView = service.add(containerView: containerView, config: config, delegate: self)
-return basicView
+  let service = MorphiiService.sharedInstance()
+  let basicView = service.add(containerView: containerView, config: config, delegate: self)
+  return basicView
 }
 ```
 
@@ -135,33 +133,33 @@ return basicView
 // Objective-C
 -(BasicView*)createBasicView: (UIView *)container {
 
-// Project information
-Project *project = [[Project alloc] initWithId:@"my-project-id" description:@"My project description"];
+  // Project information
+  Project *project = [[Project alloc] initWithId:@"my-project-id" description:@"My project description"];
 
-// Target info
-NSDictionary *metadata = @{@"value-1":@"key1", @"value-2":@"key2"};
-Target *target = [[Target alloc] initWithId:@"my-target-id" type:@"question" metadata:metadata];
+  // Target info
+  NSDictionary *metadata = @{@"value-1":@"key1", @"value-2":@"key2"};
+  Target *target = [[Target alloc] initWithId:@"my-target-id" type:@"question" metadata:metadata];
 
-// Options info
-Options *options = [[Options alloc] initWithStage:@"live" initialIntensity:0.5];
+  // Options info
+  Options *options = [[Options alloc] initWithStage:@"live" initialIntensity:0.5];
 
-// Comment info
-Comment *comment = [[Comment alloc] initWithShow:NO required:NO maxLength:100 label:@"Comment" hintText:@"Enter comment"];
+  // Comment info
+  Comment *comment = [[Comment alloc] initWithShow:NO required:NO maxLength:100 label:@"Comment" hintText:@"Enter comment"];
 
-// User data
-NSDictionary *properties = @{@"user.name@mailinator.com":@"email", @"value-2":@"key2", @"value-3":@"key3"};
-User *user = [[User alloc] initWithId:@"user-id" type:@"external" properties:properties];
+  // User data
+  NSDictionary *properties = @{@"user.name@mailinator.com":@"email", @"value-2":@"key2", @"value-3":@"key3"};
+  User *user = [[User alloc] initWithId:@"user-id" type:@"external" properties:properties];
 
-// Morphii information
-MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
-[morphiiConfig addWithId:@"6202184382145363968" name:nil weight:1];
+  // Morphii information
+  MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
+  [morphiiConfig addWithId:@"6202184382145363968" name:nil weight:1];
 
-BasicViewConfiguration *config = [[BasicViewConfiguration alloc] initWithMorphiiConfig:morphiiConfig target:target project:project comment:comment options:options user:user];
+  BasicViewConfiguration *config = [[BasicViewConfiguration alloc] initWithMorphiiConfig:morphiiConfig target:target project:project comment:comment options:options user:user];
 
-MorphiiService *service = [MorphiiService sharedInstance];    
-BasicView *basicView = [service addWithContainerView:container config:config delegate:nil];
-[container addSubview:basicView];
-return basicView;
+  MorphiiService *service = [MorphiiService sharedInstance];    
+  BasicView *basicView = [service addWithContainerView:container config:config delegate:nil];
+  [container addSubview:basicView];
+  return basicView;
 }
 ```
 
@@ -173,26 +171,26 @@ This method returns a [MorphiiSelectionView](#morphiiselectionview) object that 
 ```swift
 // Swift
 func createSelectionView() -> MorphiiSelectionView? {
-let service = MorphiiService.sharedInstance()
+  let service = MorphiiService.sharedInstance()
 
-let morphiiConfig = MorphiiConfiguration(showName: true)
-morphiiConfig.add(id: "6202185104333209600", name: nil, weight: 1)
-morphiiConfig.add(id: "6202185110939238400", name: nil, weight: 2)
-return service.addSelectionView(initialIntensity: 1.0, config: morphiiConfig, delegate: self)
+  let morphiiConfig = MorphiiConfiguration(showName: true)
+  morphiiConfig.add(id: "6202185104333209600", name: nil, weight: 1)
+  morphiiConfig.add(id: "6202185110939238400", name: nil, weight: 2)
+  return service.addSelectionView(initialIntensity: 1.0, config: morphiiConfig, delegate: self)
 }
 ```
 
 ```objective-c
 // Objective-C
 -(MorphiiSelectionView*)createSelectionView {
-MorphiiService *service = [MorphiiService sharedInstance];   
+  MorphiiService *service = [MorphiiService sharedInstance];   
 
-MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
-[morphiiConfig addWithId:@"6202185104333209600" name:nil weight:1];
-[morphiiConfig addWithId:@"6202185110939238400" name:nil weight:2];
+  MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
+  [morphiiConfig addWithId:@"6202185104333209600" name:nil weight:1];
+  [morphiiConfig addWithId:@"6202185110939238400" name:nil weight:2];
 
-MorphiiSelectionView *morphiiSelectionView = [service addSelectionViewWithInitialIntensity:1.0 config:config delegate:nil];
-return morphiiSelectionView;
+  MorphiiSelectionView *morphiiSelectionView = [service addSelectionViewWithInitialIntensity:1.0 config:config delegate:nil];
+  return morphiiSelectionView;
 }
 ```
 
@@ -205,90 +203,90 @@ This method submits data from all `BasicView`s currently in the app, if they hav
 ```swift
 //Swift
 func submit () {
-MorphiiService.sharedInstance().submit { (records) in
-for record in records {
-print("Results Record");
-print("================================================");
-print("targetId: \(record.targetId)")
-print("viewId: \(record.viewId)")
+  MorphiiService.sharedInstance().submit { (records) in
+    for record in records {
+      print("Results Record");
+      print("================================================");
+      print("targetId: \(record.targetId)")
+      print("viewId: \(record.viewId)")
 
-if !record.isSubmitted {
-// There was an error.
-print("error code: \(record.error?.code)")
-print("error message: \(record.error?.message)")
-}
-else {
-print("reactionId: \(record.reactionId)")
+      if !record.isSubmitted {
+        // There was an error.
+        print("error code: \(record.error?.code)")
+        print("error message: \(record.error?.message)")
+      }
+      else {
+        print("reactionId: \(record.reactionId)")
 
-if record.morphii != nil {
-print("morphii-id: \(record.morphii?.id)")
-print("morphii-name: \(record.morphii?.name)")
-print("morphii-displayName: \(record.morphii?.displayName)")
-print("morphii-intensity:  \(record.morphii?.intensity)")
-print("morphii-weight:  \(record.morphii?.weight)")
-}
-else {
-print("No morphii details provided.")
-}
+        if record.morphii != nil {
+          print("morphii-id: \(record.morphii?.id)")
+          print("morphii-name: \(record.morphii?.name)")
+          print("morphii-displayName: \(record.morphii?.displayName)")
+          print("morphii-intensity:  \(record.morphii?.intensity)")
+          print("morphii-weight:  \(record.morphii?.weight)")
+        }
+        else {
+          print("No morphii details provided.")
+        }
 
-if record.comment != nil {
-print("comment-text: \(record.comment?.text)")
-print("comment-locale: \(record.comment?.locale)")
-}
-else {
-print("No comment field")
-}
-}
+        if record.comment != nil {
+          print("comment-text: \(record.comment?.text)")
+          print("comment-locale: \(record.comment?.locale)")
+        }
+        else {
+          print("No comment field")
+        }
+      }
 
-print("================================================")
-print("================================================")
-}
-}
+      print("================================================")
+      print("================================================")
+    }
+  }
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)submit {
-[[MorphiiService sharedInstance] submitWithCompletion:^(NSArray<ReactionResultRecord *> * _Nonnull records) {
-for (ReactionResultRecord *record in records) {
-NSLog(@"Results Record");
-NSLog(@"================================================");
-NSLog(@"targetId: %@",record.targetId);
-NSLog(@"viewId: %@",record.viewId);
+  [[MorphiiService sharedInstance] submitWithCompletion:^(NSArray<ReactionResultRecord *> * _Nonnull records) {
+    for (ReactionResultRecord *record in records) {
+      NSLog(@"Results Record");
+      NSLog(@"================================================");
+      NSLog(@"targetId: %@",record.targetId);
+      NSLog(@"viewId: %@",record.viewId);
 
-if (!record.isSubmitted) {
-// There was an error.
-NSLog(@"error code: %@",record.error.code);
-NSLog(@"error message: %@",record.error.message);
-}
-else {
-NSLog(@"reactionId: %@", record.reactionId);
+      if (!record.isSubmitted) {
+        // There was an error.
+        NSLog(@"error code: %@",record.error.code);
+        NSLog(@"error message: %@",record.error.message);
+      }
+      else {
+        NSLog(@"reactionId: %@", record.reactionId);
 
-if (record.morphii != nil) {
-NSLog(@"morphii-id: %@", record.morphii.id);
-NSLog(@"morphii-name: %@", record.morphii.name);
-NSLog(@"morphii-displayName: %@", record.morphii.displayName);
-NSLog(@"morphii-intensity:  %f", record.morphii.intensity);
-NSLog(@"morphii-weight:  %ld", record.morphii.weight);
-}
-else {
-NSLog(@"No morphii details provided.");
-}
+        if (record.morphii != nil) {
+          NSLog(@"morphii-id: %@", record.morphii.id);
+          NSLog(@"morphii-name: %@", record.morphii.name);
+          NSLog(@"morphii-displayName: %@", record.morphii.displayName);
+          NSLog(@"morphii-intensity:  %f", record.morphii.intensity);
+          NSLog(@"morphii-weight:  %ld", record.morphii.weight);
+        }
+        else {
+          NSLog(@"No morphii details provided.");
+        }
 
-if (record.comment != nil) {
-NSLog(@"comment-text: %@", record.comment.text);
-NSLog(@"comment-locale: %@", record.comment.locale);
-}
-else {
-NSLog(@"No comment field");
-}
-}
+        if (record.comment != nil) {
+          NSLog(@"comment-text: %@", record.comment.text);
+          NSLog(@"comment-locale: %@", record.comment.locale);
+        }
+        else {
+          NSLog(@"No comment field");
+        }
+      }
 
-NSLog(@"================================================");
-NSLog(@"================================================");
-}
-}];
+      NSLog(@"================================================");
+      NSLog(@"================================================");
+    }
+  }];
 }
 ```
 
@@ -300,14 +298,14 @@ This method resets all of the `BasicView`s to their default configuration. The m
 ```swift
 // Swift
 func reset() {
-MorphiiService.sharedInstance().reset(comment: true)
+  MorphiiService.sharedInstance().reset(comment: true)
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)reset {
-[[MorphiiService sharedInstance] resetWithComment:YES];
+  [[MorphiiService sharedInstance] resetWithComment:YES];
 }
 ```
 
@@ -322,90 +320,90 @@ This method takes the data from the specific `BasicView` and submits it. It will
 ```swift
 // Swift
 func submit() {
-basicView?.submit { (records) in
-for record in records {
-print("Results Record");
-print("================================================");
-print("targetId: \(record.targetId)")
-print("viewId: \(record.viewId)")
+  basicView?.submit { (records) in
+    for record in records {
+      print("Results Record");
+      print("================================================");
+      print("targetId: \(record.targetId)")
+      print("viewId: \(record.viewId)")
 
-if !record.isSubmitted {
-// There was an error.
-print("error code: \(record.error?.code)")
-print("error message: \(record.error?.message)")
-}
-else {
-print("reactionId: \(record.reactionId)")
+      if !record.isSubmitted {
+        // There was an error.
+        print("error code: \(record.error?.code)")
+        print("error message: \(record.error?.message)")
+      }
+      else {
+        print("reactionId: \(record.reactionId)")
 
-if record.morphii != nil {
-print("morphii-id: \(record.morphii?.id)")
-print("morphii-name: \(record.morphii?.name)")
-print("morphii-displayName: \(record.morphii?.displayName)")
-print("morphii-intensity:  \(record.morphii?.intensity)")
-print("morphii-weight:  \(record.morphii?.weight)")
-}
-else {
-print("No morphii details provided.")
-}
+        if record.morphii != nil {
+          print("morphii-id: \(record.morphii?.id)")
+          print("morphii-name: \(record.morphii?.name)")
+          print("morphii-displayName: \(record.morphii?.displayName)")
+          print("morphii-intensity:  \(record.morphii?.intensity)")
+          print("morphii-weight:  \(record.morphii?.weight)")
+        }
+        else {
+          print("No morphii details provided.")
+        }
 
-if record.comment != nil {
-print("comment-text: \(record.comment?.text)")
-print("comment-locale: \(record.comment?.locale)")
-}
-else {
-print("No comment field")
-}
-}
+        if record.comment != nil {
+          print("comment-text: \(record.comment?.text)")
+          print("comment-locale: \(record.comment?.locale)")
+        }
+        else {
+          print("No comment field")
+        }
+      }
 
-print("================================================")
-print("================================================")
-}
-}
+      print("================================================")
+      print("================================================")
+    }
+  }
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)submit {
-[_basicView submitWithCompletion:^(NSArray<ReactionResultRecord *> * _Nonnull records) {
-for (ReactionResultRecord *record in records) {
-NSLog(@"Results Record");
-NSLog(@"================================================");
-NSLog(@"targetId: %@",record.targetId);
-NSLog(@"viewId: %@",record.viewId);
+  [_basicView submitWithCompletion:^(NSArray<ReactionResultRecord *> * _Nonnull records) {
+    for (ReactionResultRecord *record in records) {
+      NSLog(@"Results Record");
+      NSLog(@"================================================");
+      NSLog(@"targetId: %@",record.targetId);
+      NSLog(@"viewId: %@",record.viewId);
 
-if (!record.isSubmitted) {
-// There was an error.
-NSLog(@"error code: %@",record.error.code);
-NSLog(@"error message: %@",record.error.message);
-}
-else {
-NSLog(@"reactionId: %@", record.reactionId);
+      if (!record.isSubmitted) {
+        // There was an error.
+        NSLog(@"error code: %@",record.error.code);
+        NSLog(@"error message: %@",record.error.message);
+      }
+      else {
+        NSLog(@"reactionId: %@", record.reactionId);
 
-if (record.morphii != nil) {
-NSLog(@"morphii-id: %@", record.morphii.id);
-NSLog(@"morphii-name: %@", record.morphii.name);
-NSLog(@"morphii-displayName: %@", record.morphii.displayName);
-NSLog(@"morphii-intensity:  %f", record.morphii.intensity);
-NSLog(@"morphii-weight:  %ld", record.morphii.weight);
-}
-else {
-NSLog(@"No morphii details provided.");
-}
+        if (record.morphii != nil) {
+          NSLog(@"morphii-id: %@", record.morphii.id);
+          NSLog(@"morphii-name: %@", record.morphii.name);
+          NSLog(@"morphii-displayName: %@", record.morphii.displayName);
+          NSLog(@"morphii-intensity:  %f", record.morphii.intensity);
+          NSLog(@"morphii-weight:  %ld", record.morphii.weight);
+        }
+        else {
+          NSLog(@"No morphii details provided.");
+        }
 
-if (record.comment != nil) {
-NSLog(@"comment-text: %@", record.comment.text);
-NSLog(@"comment-locale: %@", record.comment.locale);
-}
-else {
-NSLog(@"No comment field");
-}
-}
+        if (record.comment != nil) {
+          NSLog(@"comment-text: %@", record.comment.text);
+          NSLog(@"comment-locale: %@", record.comment.locale);
+        }
+        else {
+          NSLog(@"No comment field");
+        }
+      }
 
-NSLog(@"================================================");
-NSLog(@"================================================");
-}
-}];
+      NSLog(@"================================================");
+      NSLog(@"================================================");
+    }
+  }];
 }
 ```
 
@@ -417,15 +415,15 @@ This method returns a `UIImage` of the morphii in a specified `BasicView`. The v
 ```swift
 // Swift
 func getPng() {
-imageView.image = basicView?.png(size: CGSize(width: 60, height: 60))
+  imageView.image = basicView?.png(size: CGSize(width: 60, height: 60))
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)getPng {
-UIImage *image = [_basicView pngWithSize:CGSizeMake(60, 60)];    
-[_imageView setImage: image];
+  UIImage *image = [_basicView pngWithSize:CGSizeMake(60, 60)];    
+  [_imageView setImage: image];
 }
 ```
 
@@ -438,14 +436,14 @@ This method will reset the `BasicView` back to its default values. The method re
 ```swift
 // Swift
 func reset() {
-basicView?.reset(comment: true)
+  basicView?.reset(comment: true)
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)reset {
-[_basicView resetWithComment:YES];
+  [_basicView resetWithComment:YES];
 }
 ```
 
@@ -625,90 +623,90 @@ The ReactionResultRecord object is returned from the `submit` methods. Note, if 
 ```swift
 // Swift
 func submit() {
-MorphiiService.sharedInstance().submit { (records) in
-for record in records {
-print("Results Record");
-print("================================================");
-print("targetId: \(record.targetId)")
-print("viewId: \(record.viewId)")
+  MorphiiService.sharedInstance().submit { (records) in
+    for record in records {
+      print("Results Record");
+      print("================================================");
+      print("targetId: \(record.targetId)")
+      print("viewId: \(record.viewId)")
 
-if !record.isSubmitted {
-// There was an error.
-print("error code: \(record.error?.code)")
-print("error message: \(record.error?.message)")
-}
-else {
-print("reactionId: \(record.reactionId)")
+      if !record.isSubmitted {
+        // There was an error.
+        print("error code: \(record.error?.code)")
+        print("error message: \(record.error?.message)")
+      }
+      else {
+        print("reactionId: \(record.reactionId)")
 
-if record.morphii != nil {
-print("morphii-id: \(record.morphii?.id)")
-print("morphii-name: \(record.morphii?.name)")
-print("morphii-displayName: \(record.morphii?.displayName)")
-print("morphii-intensity:  \(record.morphii?.intensity)")
-print("morphii-weight:  \(record.morphii?.weight)")
-}
-else {
-print("No morphii details provided.")
-}
+        if record.morphii != nil {
+          print("morphii-id: \(record.morphii?.id)")
+          print("morphii-name: \(record.morphii?.name)")
+          print("morphii-displayName: \(record.morphii?.displayName)")
+          print("morphii-intensity:  \(record.morphii?.intensity)")
+          print("morphii-weight:  \(record.morphii?.weight)")
+        }
+        else {
+          print("No morphii details provided.")
+        }
 
-if record.comment != nil {
-print("comment-text: \(record.comment?.text)")
-print("comment-locale: \(record.comment?.locale)")
-}
-else {
-print("No comment field")
-}
-}
+        if record.comment != nil {
+          print("comment-text: \(record.comment?.text)")
+          print("comment-locale: \(record.comment?.locale)")
+        }
+        else {
+          print("No comment field")
+        }
+      }
 
-print("================================================")
-print("================================================")
-}
-}
+      print("================================================")
+      print("================================================")
+    }
+  }
 }
 ```
 
 ```objective-c
 // Objective-C
 - (void)submit {
-[[MorphiiService sharedInstance] submitWithCompletion:^(NSArray<ReactionResultRecord *> * _Nonnull records) {
-for (ReactionResultRecord *record in records) {
-NSLog(@"Results Record");
-NSLog(@"================================================");
-NSLog(@"targetId: %@",record.targetId);
-NSLog(@"viewId: %@",record.viewId);
+  [[MorphiiService sharedInstance] submitWithCompletion:^(NSArray<ReactionResultRecord *> * _Nonnull records) {
+    for (ReactionResultRecord *record in records) {
+      NSLog(@"Results Record");
+      NSLog(@"================================================");
+      NSLog(@"targetId: %@",record.targetId);
+      NSLog(@"viewId: %@",record.viewId);
 
-if (!record.isSubmitted) {
-// There was an error.
-NSLog(@"error code: %@",record.error.code);
-NSLog(@"error message: %@",record.error.message);
-}
-else {
-NSLog(@"reactionId: %@", record.reactionId);
+      if (!record.isSubmitted) {
+        // There was an error.
+        NSLog(@"error code: %@",record.error.code);
+        NSLog(@"error message: %@",record.error.message);
+      }
+      else {
+        NSLog(@"reactionId: %@", record.reactionId);
 
-if (record.morphii != nil) {
-NSLog(@"morphii-id: %@", record.morphii.id);
-NSLog(@"morphii-name: %@", record.morphii.name);
-NSLog(@"morphii-displayName: %@", record.morphii.displayName);
-NSLog(@"morphii-intensity:  %f", record.morphii.intensity);
-NSLog(@"morphii-weight:  %ld", record.morphii.weight);
-}
-else {
-NSLog(@"No morphii details provided.");
-}
+        if (record.morphii != nil) {
+          NSLog(@"morphii-id: %@", record.morphii.id);
+          NSLog(@"morphii-name: %@", record.morphii.name);
+          NSLog(@"morphii-displayName: %@", record.morphii.displayName);
+          NSLog(@"morphii-intensity:  %f", record.morphii.intensity);
+          NSLog(@"morphii-weight:  %ld", record.morphii.weight);
+        }
+        else {
+          NSLog(@"No morphii details provided.");
+        }
 
-if (record.comment != nil) {
-NSLog(@"comment-text: %@", record.comment.text);
-NSLog(@"comment-locale: %@", record.comment.locale);
-}
-else {
-NSLog(@"No comment field");
-}
-}
+        if (record.comment != nil) {
+          NSLog(@"comment-text: %@", record.comment.text);
+          NSLog(@"comment-locale: %@", record.comment.locale);
+        }
+        else {
+          NSLog(@"No comment field");
+        }
+      }
 
-NSLog(@"================================================");
-NSLog(@"================================================");
-}
-}];
+      NSLog(@"================================================");
+      NSLog(@"================================================");
+    }
+  }];
 }
 ```
 
