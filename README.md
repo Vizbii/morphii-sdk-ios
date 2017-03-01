@@ -19,7 +19,7 @@ The Morphii SDK provides developers with the ability to add a morphii. Morphii a
 4. If you are not already using cocoapods, run pod init
 5. Add the following to your podfile
 ```
-pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.58'
+pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.60'
 ```
 6. Run pod install
 7. Add import MorphiiSDK wherever you would like to utilize the SDK
