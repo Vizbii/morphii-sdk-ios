@@ -17,14 +17,14 @@ Pod::Spec.new do |s|
 
   s.name         = "MorphiiSDK"
   s.version      = "0.0.58"
-  s.summary      = "An sdk that allows users to morph their own emojis."
+  s.summary      = "A SDK that allows developers to embed Morphii technology into their native apps."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "The MorphiiSDK is a library that allows developers to tap into the morphii platform. This can be used to guage peoples reactions and emotions to a very specific level."
+  s.description  = "The MorphiiSDK is a library that allows developers to embed the Morphii technology into their native apps. Morphii can be used to guage peoples reactions and emotions."
 
   s.homepage     = "http://morphii.com/"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -37,8 +37,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = { :type => "Commercial", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -51,10 +50,8 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "Charles von Lehe" => "cvonlehe@netgalaxystudios.com" }
-  # Or just: s.author    = "Charles von Lehe"
-  # s.authors            = { "Charles von Lehe" => "cvonlehe@netgalaxystudios.com" }
-  # s.social_media_url   = "http://twitter.com/Charles von Lehe"
+  s.author             = { "Morphii Development" => "dev@morphii.com" }
+  s.social_media_url   = "https://twitter.com/morphiico"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
