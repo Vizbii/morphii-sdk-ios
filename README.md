@@ -3,7 +3,7 @@
 # Morphii SDK
 
 ## What It Is
-The Morphii SDK provides developers with the ability to add a morphii. Morphii allows the user to manipulate the type and intensity of the emotion. There are several different morphiis to allow for a full range of possible emotions. The developer also has the option to include a comment section along with the morphii. The developer then can gather pertinent information from the user's interaction with the morphiis to use for analytical purposes. For more information see the [Morphii Site](http://morphii.com).
+The Morphii SDK provides developers with the ability to add a morphii technology to iOS native apps. Morphii allows the user to manipulate the type and intensity of the emotion. There are several different morphiis to allow for a full range of possible emotions. The developer also has the option to include a comment section along with the morphii. The developer then can gather pertinent information from the user's interaction with the morphiis to use for analytical purposes. For more information see the [Morphii Site](http://morphii.com).
 
 ## How to Use It
 
@@ -19,7 +19,7 @@ The Morphii SDK provides developers with the ability to add a morphii. Morphii a
 4. If you are not already using cocoapods, run pod init
 5. Add the following to your podfile
 ```
-pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.60'
+pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.61'
 ```
 6. Run pod install
 7. Add import MorphiiSDK wherever you would like to utilize the SDK
