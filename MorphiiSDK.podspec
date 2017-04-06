@@ -16,11 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MorphiiSDK"
-<<<<<<< HEAD
   s.version      = "0.0.63"
-=======
-  s.version      = "0.0.61"
->>>>>>> parent of e7e964f... Changed Alamofire version to 4.4
   s.summary      = "A SDK that allows developers to embed Morphii technology into their native apps."
 
   # This description is used to generate tags and improve search results.
@@ -81,11 +77,7 @@ Pod::Spec.new do |s|
   #
 #  s.source       = { :path => '.' }
 
-<<<<<<< HEAD
   s.source       = { :git => "https://github.com/Vizbii/morphii-sdk-ios.git", :tag => "0.0.63" }
-=======
-  s.source       = { :git => "https://github.com/Vizbii/morphii-sdk-ios.git", :tag => "0.0.61" }
->>>>>>> parent of e7e964f... Changed Alamofire version to 4.4
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -139,7 +131,7 @@ s.ios.vendored_frameworks = 'MorphiiSDK.framework'
   # s.requires_arc = true
 
    s.xcconfig = { "ENABLE_BITCODE" => "NO" }
-   s.dependency "Alamofire", "~> 4.3"
+   s.dependency "Alamofire", "~> 4.4"
 
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
 
