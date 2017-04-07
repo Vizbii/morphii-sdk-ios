@@ -31,8 +31,8 @@ class ViewController: UIViewController {
             }
             else {
                 print("Authentication failed")
-                print("error code: \(result.error?.code)")
-                print("error message: \(result.error?.message)")
+                print("error code: \(String(describing: result.error?.code))")
+                print("error message: \(String(describing: result.error?.message))")
             }
         }
     }
@@ -52,26 +52,26 @@ class ViewController: UIViewController {
                 
                 if !record.isSubmitted {
                     // There was an error.
-                    print("error code: \(record.error?.code)")
-                    print("error message: \(record.error?.message)")
+                    print("error code: \(String(describing: record.error?.code))")
+                    print("error message: \(String(describing: record.error?.message))")
                 }
                 else {
-                    print("reactionId: \(record.reactionId)")
+                    print("reactionId: \(String(describing: record.reactionId))")
                     
                     if record.morphii != nil {
-                        print("morphii-id: \(record.morphii?.id)")
-                        print("morphii-name: \(record.morphii?.name)")
-                        print("morphii-displayName: \(record.morphii?.displayName)")
-                        print("morphii-intensity:  \(record.morphii?.intensity)")
-                        print("morphii-weight:  \(record.morphii?.weight)")
+                        print("morphii-id: \(String(describing: record.morphii?.id))")
+                        print("morphii-name: \(String(describing: record.morphii?.name))")
+                        print("morphii-displayName: \(String(describing: record.morphii?.displayName))")
+                        print("morphii-intensity:  \(String(describing: record.morphii?.intensity))")
+                        print("morphii-weight:  \(String(describing: record.morphii?.weight))")
                     }
                     else {
                         print("No morphii details provided.")
                     }
                     
                     if record.comment != nil {
-                        print("comment-text: \(record.comment?.text)")
-                        print("comment-locale: \(record.comment?.locale)")
+                        print("comment-text: \(String(describing: record.comment?.text))")
+                        print("comment-locale: \(String(describing: record.comment?.locale))")
                     }
                     else {
                         print("No comment field")
@@ -140,9 +140,9 @@ extension ViewController:BasicViewDelegate {
         print("Event type: \(type)")
         print("viewId: \(view.id)")
         if type == "comment_changed" {
-            print("comment required: \(view.comment?.required)")
-            print("comment length: \(view.comment?.length)")
-            print("comment value: \(view.comment?.value)")
+            print("comment required: \(String(describing: view.comment?.required))")
+            print("comment length: \(String(describing: view.comment?.length))")
+            print("comment value: \(String(describing: view.comment?.value))")
         }        
     }
 }
