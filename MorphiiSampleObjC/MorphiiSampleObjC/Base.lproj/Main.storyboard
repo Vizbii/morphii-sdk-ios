@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fLh-L9-A5p">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="2sR-FC-ae2">
+            <objects>
+                <viewController id="fLh-L9-A5p" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xat-6T-ZUr"/>
+                        <viewControllerLayoutGuide type="bottom" id="yQa-ge-xWt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nYj-Dh-MhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="er2-TJ-eqz">
+                                <rect key="frame" x="16" y="28" width="343" height="271"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="271" id="25D-LF-YMN"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hJ-k5-WnS">
+                                <rect key="frame" x="16" y="307" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.58431372550000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="fLh-L9-A5p" eventType="touchUpInside" id="bBd-Uc-CDK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ct-W7-ZGh">
+                                <rect key="frame" x="16" y="345" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.58431372550000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Get PNG">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getPngButtonPressed:" destination="fLh-L9-A5p" eventType="touchUpInside" id="kHu-HI-Xor"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TMU-Zh-oqW">
+                                <rect key="frame" x="123" y="531" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="h15-Ha-0W5"/>
+                                    <constraint firstAttribute="height" constant="128" id="jwP-xX-Ezt"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-jE-sBt">
+                                <rect key="frame" x="16" y="383" width="343" height="30"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.58431372550000005" blue="0.75686274509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="fLh-L9-A5p" eventType="touchUpInside" id="WoJ-sN-1Qy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="er2-TJ-eqz" firstAttribute="top" secondItem="Xat-6T-ZUr" secondAttribute="bottom" constant="8" id="9FH-Aw-Wt7"/>
+                            <constraint firstItem="tg9-jE-sBt" firstAttribute="centerX" secondItem="9ct-W7-ZGh" secondAttribute="centerX" id="BdD-Rk-7MB"/>
+                            <constraint firstItem="5hJ-k5-WnS" firstAttribute="centerX" secondItem="er2-TJ-eqz" secondAttribute="centerX" id="Bnb-Fb-vcr"/>
+                            <constraint firstItem="tg9-jE-sBt" firstAttribute="width" secondItem="9ct-W7-ZGh" secondAttribute="width" id="EGR-Ak-x1N"/>
+                            <constraint firstItem="tg9-jE-sBt" firstAttribute="top" secondItem="9ct-W7-ZGh" secondAttribute="bottom" constant="8" id="J3l-1N-hxw"/>
+                            <constraint firstItem="yQa-ge-xWt" firstAttribute="top" secondItem="TMU-Zh-oqW" secondAttribute="bottom" constant="8" id="NSu-bD-mTM"/>
+                            <constraint firstItem="er2-TJ-eqz" firstAttribute="trailing" secondItem="nYj-Dh-MhL" secondAttribute="trailingMargin" id="NVn-3Q-gu5"/>
+                            <constraint firstItem="9ct-W7-ZGh" firstAttribute="top" secondItem="5hJ-k5-WnS" secondAttribute="bottom" constant="8" id="QMd-uX-QdY"/>
+                            <constraint firstItem="9ct-W7-ZGh" firstAttribute="centerX" secondItem="5hJ-k5-WnS" secondAttribute="centerX" id="Rsz-GI-Q0E"/>
+                            <constraint firstItem="TMU-Zh-oqW" firstAttribute="centerX" secondItem="nYj-Dh-MhL" secondAttribute="centerX" id="Zck-ha-RAY"/>
+                            <constraint firstItem="5hJ-k5-WnS" firstAttribute="width" secondItem="er2-TJ-eqz" secondAttribute="width" id="g4l-hD-bXQ"/>
+                            <constraint firstItem="er2-TJ-eqz" firstAttribute="leading" secondItem="nYj-Dh-MhL" secondAttribute="leadingMargin" id="jiG-k4-3Xg"/>
+                            <constraint firstItem="9ct-W7-ZGh" firstAttribute="width" secondItem="5hJ-k5-WnS" secondAttribute="width" id="xKt-0X-ild"/>
+                            <constraint firstItem="5hJ-k5-WnS" firstAttribute="top" secondItem="er2-TJ-eqz" secondAttribute="bottom" constant="8" id="zrp-qw-Xz9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="er2-TJ-eqz" id="10a-fy-7bS"/>
+                        <outlet property="imageView" destination="TMU-Zh-oqW" id="9Cm-e8-y3A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P8a-97-glT" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
