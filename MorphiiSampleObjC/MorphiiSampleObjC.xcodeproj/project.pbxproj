@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		84385BD37D24EB5B3E9D9E4E /* Pods_MorphiiSampleObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296E51FBA40F000E6CD67 /* Pods_MorphiiSampleObjC.framework */; };
 		97E296F21FBA445200E6CD67 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296F31FBA445200E6CD67 /* Alamofire.framework */; };
-		97E296F51FBA446800E6CD67 /* MorphiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296F41FBA446800E6CD67 /* MorphiiSDK.framework */; };
+		97E2971C1FBC8FA400E6CD67 /* MorphiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296F41FBA446800E6CD67 /* MorphiiSDK.framework */; };
 		CB57BF0F1E60C3B9004A7AB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57BF0E1E60C3B9004A7AB5 /* main.m */; };
 		CB57BF121E60C3B9004A7AB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57BF111E60C3B9004A7AB5 /* AppDelegate.m */; };
 		CB57BF151E60C3B9004A7AB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57BF141E60C3B9004A7AB5 /* ViewController.m */; };
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E296F51FBA446800E6CD67 /* MorphiiSDK.framework in Frameworks */,
+				97E2971C1FBC8FA400E6CD67 /* MorphiiSDK.framework in Frameworks */,
 				97E296F21FBA445200E6CD67 /* Alamofire.framework in Frameworks */,
 				84385BD37D24EB5B3E9D9E4E /* Pods_MorphiiSampleObjC.framework in Frameworks */,
 			);
