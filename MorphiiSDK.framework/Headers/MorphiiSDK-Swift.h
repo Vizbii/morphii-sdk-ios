@@ -316,7 +316,7 @@ SWIFT_CLASS("_TtCC10MorphiiSDK10MorphiiSDK14ReactionResult")
 SWIFT_CLASS("_TtCC10MorphiiSDK10MorphiiSDK21AuthenticationResults")
 @interface AuthenticationResults : NSObject
 @property (nonatomic) BOOL isAuthenticated;
-@property (nonatomic, strong) ReactionError * _Nullable error SWIFT_DEPRECATED_OBJC("Swift property 'AuthenticationResults.error' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) ReactionError * _Nullable error;
 - (nonnull instancetype)initWithIsAuthenticated:(BOOL)isAuthenticated jwt:(NSString * _Nullable)jwt apiKey:(NSString * _Nullable)apiKey sessionId:(NSString * _Nullable)sessionId error:(ReactionError * _Nullable)error OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'AuthenticationResults.init(isAuthenticated:jwt:apiKey:sessionId:error:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end

@@ -7,4 +7,5 @@ framework module MorphiiSDK {
 
 module MorphiiSDK.Swift {
     header "MorphiiSDK-Swift.h"
+    requires objc
 }

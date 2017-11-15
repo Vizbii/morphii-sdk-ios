@@ -316,7 +316,7 @@ SWIFT_CLASS("_TtCC10MorphiiSDK10MorphiiSDK14ReactionResult")
 SWIFT_CLASS("_TtCC10MorphiiSDK10MorphiiSDK21AuthenticationResults")
 @interface AuthenticationResults : NSObject
 @property (nonatomic) BOOL isAuthenticated;
-@property (nonatomic, strong) ReactionError * _Nullable error SWIFT_DEPRECATED_OBJC("Swift property 'AuthenticationResults.error' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) ReactionError * _Nullable error;
 - (nonnull instancetype)initWithIsAuthenticated:(BOOL)isAuthenticated jwt:(NSString * _Nullable)jwt apiKey:(NSString * _Nullable)apiKey sessionId:(NSString * _Nullable)sessionId error:(ReactionError * _Nullable)error OBJC_DESIGNATED_INITIALIZER SWIFT_DEPRECATED_OBJC("Swift initializer 'AuthenticationResults.init(isAuthenticated:jwt:apiKey:sessionId:error:)' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
@@ -399,13 +399,13 @@ SWIFT_CLASS("_TtC10MorphiiSDK27ReactionMorphiiResultRecord")
 
 SWIFT_CLASS("_TtC10MorphiiSDK20ReactionResultRecord")
 @interface ReactionResultRecord : NSObject
-@property (nonatomic, readonly) BOOL isSubmitted;
-@property (nonatomic, readonly, copy) NSString * _Nullable reactionId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull viewId;
-@property (nonatomic, readonly, copy) NSString * _Nonnull targetId;
-@property (nonatomic, readonly, strong) ReactionCommentRecord * _Nullable comment;
-@property (nonatomic, readonly, strong) ReactionMorphiiResultRecord * _Nullable morphii;
-@property (nonatomic, strong) ReactionError * _Nullable error;
+@property (nonatomic, readonly) BOOL isSubmitted SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.isSubmitted' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nullable reactionId SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.reactionId' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull viewId SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.viewId' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, copy) NSString * _Nonnull targetId SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.targetId' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) ReactionCommentRecord * _Nullable comment SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.comment' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, readonly, strong) ReactionMorphiiResultRecord * _Nullable morphii SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.morphii' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
+@property (nonatomic, strong) ReactionError * _Nullable error SWIFT_DEPRECATED_OBJC("Swift property 'ReactionResultRecord.error' uses '@objc' inference deprecated in Swift 4; add '@objc' to provide an Objective-C entrypoint");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
