@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E13D0E3ED83CF846826FBDD /* Pods_MorphiiSampleObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D6D0E868F6AB8210145335 /* Pods_MorphiiSampleObjC.framework */; };
+		84385BD37D24EB5B3E9D9E4E /* Pods_MorphiiSampleObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296E51FBA40F000E6CD67 /* Pods_MorphiiSampleObjC.framework */; };
+		97E296F21FBA445200E6CD67 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296F31FBA445200E6CD67 /* Alamofire.framework */; };
+		97E296F51FBA446800E6CD67 /* MorphiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97E296F41FBA446800E6CD67 /* MorphiiSDK.framework */; };
 		CB57BF0F1E60C3B9004A7AB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57BF0E1E60C3B9004A7AB5 /* main.m */; };
 		CB57BF121E60C3B9004A7AB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57BF111E60C3B9004A7AB5 /* AppDelegate.m */; };
 		CB57BF151E60C3B9004A7AB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB57BF141E60C3B9004A7AB5 /* ViewController.m */; };
@@ -19,7 +21,9 @@
 /* Begin PBXFileReference section */
 		1B3B0C4B318C3A0C17123524 /* Pods-MorphiiSampleObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MorphiiSampleObjC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MorphiiSampleObjC/Pods-MorphiiSampleObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		2C331ECF2277ADC2500607C9 /* Pods-MorphiiSampleObjC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MorphiiSampleObjC.release.xcconfig"; path = "Pods/Target Support Files/Pods-MorphiiSampleObjC/Pods-MorphiiSampleObjC.release.xcconfig"; sourceTree = "<group>"; };
-		B0D6D0E868F6AB8210145335 /* Pods_MorphiiSampleObjC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MorphiiSampleObjC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E296E51FBA40F000E6CD67 /* Pods_MorphiiSampleObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pods_MorphiiSampleObjC.framework; sourceTree = "<group>"; };
+		97E296F31FBA445200E6CD67 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E296F41FBA446800E6CD67 /* MorphiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MorphiiSDK.framework; path = Pods/MorphiiSDK/MorphiiSDK.framework; sourceTree = "<group>"; };
 		CB57BF0A1E60C3B9004A7AB5 /* MorphiiSampleObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MorphiiSampleObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB57BF0E1E60C3B9004A7AB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CB57BF101E60C3B9004A7AB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,7 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E13D0E3ED83CF846826FBDD /* Pods_MorphiiSampleObjC.framework in Frameworks */,
+				97E296F51FBA446800E6CD67 /* MorphiiSDK.framework in Frameworks */,
+				97E296F21FBA445200E6CD67 /* Alamofire.framework in Frameworks */,
+				84385BD37D24EB5B3E9D9E4E /* Pods_MorphiiSampleObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +62,9 @@
 		94C93029DDECFA2C895B6B4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B0D6D0E868F6AB8210145335 /* Pods_MorphiiSampleObjC.framework */,
+				97E296F41FBA446800E6CD67 /* MorphiiSDK.framework */,
+				97E296F31FBA445200E6CD67 /* Alamofire.framework */,
+				97E296E51FBA40F000E6CD67 /* Pods_MorphiiSampleObjC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,12 +140,12 @@
 		CB57BF021E60C3B9004A7AB5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "netGALAXY Studios";
 				TargetAttributes = {
 					CB57BF091E60C3B9004A7AB5 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9BQPC5NUTX;
+						DevelopmentTeam = 7476JHVY58;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -263,7 +271,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -271,7 +281,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -311,7 +325,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -319,7 +335,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -350,8 +370,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9BQPC5NUTX;
+				DEVELOPMENT_TEAM = 7476JHVY58;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/MorphiiSDK",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MorphiiSampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.morphii.MorphiiSampleObjC;
@@ -366,8 +391,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9BQPC5NUTX;
+				DEVELOPMENT_TEAM = 7476JHVY58;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/MorphiiSDK",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MorphiiSampleObjC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.morphii.MorphiiSampleObjC;
