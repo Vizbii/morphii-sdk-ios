@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MorphiiSDK-Swift.h</key>
 		<data>
-		mFwaXZxe1jhK2kNBmRV6+Jp/XjM=
+		rDiDma4WUPHrIm4j/H+5HqaxIHg=
 		</data>
 		<key>Headers/MorphiiSDK.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/MorphiiSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		mrd5vwKgFFDqQEUxfvoZ0Gp+4jc=
+		mneIVinIxxLvnfuTKmvO7ne5ITs=
 		</data>
 		<key>Modules/MorphiiSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		8uhrtImqgWjaiHT/Xqiju8HqLnk=
+		k1S1wqjZd9P4ZKBWCt7qEG199Rg=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -30,15 +30,15 @@
 		</data>
 		<key>MorphiiSelectionView.nib</key>
 		<data>
-		uzUiHAbPKs/2qy+dtx+04FlxmoU=
+		4yVTQmdZk73mxEVbeM/aDAc5Lo8=
 		</data>
 		<key>MultiMorphiiCommentView.nib</key>
 		<data>
-		65L/Az4bii/fKVdqDq1BtqSpqX4=
+		AQZ5Cq4P90L8qSOkyRK1aJXLNQg=
 		</data>
 		<key>MultiMorphiiNoCommentView.nib</key>
 		<data>
-		gaZJccColJMuTwZgkrDqV5m6BCM=
+		mkuBwgSbwHVJ1/6DAibPwGjdYBA=
 		</data>
 		<key>README.md</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>SingleMorphiiCommentView.nib</key>
 		<data>
-		YgHgJ50FlAq2b3vcG4S9+G54QAk=
+		nIrn0mYTbUUOiYxi8B/ZWVJZhYc=
 		</data>
 		<key>SingleMorphiiView.nib</key>
 		<data>
-		KFkw9/4PxBcfPFzMLr4gLxQm5N0=
+		v9rBAKv8c/RRpc2lcMheZnjPkLA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -59,11 +59,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mFwaXZxe1jhK2kNBmRV6+Jp/XjM=
+			rDiDma4WUPHrIm4j/H+5HqaxIHg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Aq2modwvJdhdHrz63L15vOQKpmTg7LRD2BopmDnXQUo=
+			UsqSjAFsinnqc15wJ6Ft8qsN/+n6w3H7hE0iAYnSJv8=
 			</data>
 		</dict>
 		<key>Headers/MorphiiSDK.h</key>
@@ -81,22 +81,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mrd5vwKgFFDqQEUxfvoZ0Gp+4jc=
+			mneIVinIxxLvnfuTKmvO7ne5ITs=
 			</data>
 			<key>hash2</key>
 			<data>
-			hRkyNzuWARPmiV29GAtlVd/rQs59LsLVQhRNzwE51gY=
+			+tmZAHNWfoda/r0c97XXnCy+06/lFKEzCh5b5VXYaZQ=
 			</data>
 		</dict>
 		<key>Modules/MorphiiSDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8uhrtImqgWjaiHT/Xqiju8HqLnk=
+			k1S1wqjZd9P4ZKBWCt7qEG199Rg=
 			</data>
 			<key>hash2</key>
 			<data>
-			JstMOYgsnfFFuRaH+6DCmlqIhYihTtY/fKcCtHiXZTA=
+			ShwPn7W7/UYOrfv3IIHBeM7169PRzkKz56KJaqyvb24=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -114,33 +114,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uzUiHAbPKs/2qy+dtx+04FlxmoU=
+			4yVTQmdZk73mxEVbeM/aDAc5Lo8=
 			</data>
 			<key>hash2</key>
 			<data>
-			lYPkH81x9m6hsZ46onlPsQLXo1S+w0WjadObsUtbofg=
+			pKE7JyWk1OgDWcp71ZXgit3I/FP9lUWnPBDcbNX/3Fo=
 			</data>
 		</dict>
 		<key>MultiMorphiiCommentView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			65L/Az4bii/fKVdqDq1BtqSpqX4=
+			AQZ5Cq4P90L8qSOkyRK1aJXLNQg=
 			</data>
 			<key>hash2</key>
 			<data>
-			qR/cEQkOniiI9uThO3qOMRkrsUq2kxAN9xZnJksQCpY=
+			grtuDPJ/C6UKegfq+CP5+1waub9v7cm0dmAFnZovIvw=
 			</data>
 		</dict>
 		<key>MultiMorphiiNoCommentView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gaZJccColJMuTwZgkrDqV5m6BCM=
+			mkuBwgSbwHVJ1/6DAibPwGjdYBA=
 			</data>
 			<key>hash2</key>
 			<data>
-			KyhOYZ7vwmPrimIMj0kIUwZGmGH5JYUIx4M6rVnwMXQ=
+			rDWXBKQj9hrGhO+Sjz25DRAtCPjyZ/ZFIEGJ8XGdni8=
 			</data>
 		</dict>
 		<key>README.md</key>
@@ -158,22 +158,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YgHgJ50FlAq2b3vcG4S9+G54QAk=
+			nIrn0mYTbUUOiYxi8B/ZWVJZhYc=
 			</data>
 			<key>hash2</key>
 			<data>
-			WjHEgK9dx2jdo3vqvsCpcVuu2g3aPGTqCjgkDLT61Ls=
+			eKMjxp8MVK27umML8YIoyAP143dmK+J8J7GVTOsOV4E=
 			</data>
 		</dict>
 		<key>SingleMorphiiView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KFkw9/4PxBcfPFzMLr4gLxQm5N0=
+			v9rBAKv8c/RRpc2lcMheZnjPkLA=
 			</data>
 			<key>hash2</key>
 			<data>
-			SUkZJjCaDr4/v8u/5NO0el8l9ndrw5TAhhYZRcQi85E=
+			cxCLMgRvr1VsyIU+87sM6fqi5+Kn/36q3/N3O03Gyas=
 			</data>
 		</dict>
 	</dict>
