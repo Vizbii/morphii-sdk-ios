@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MorphiiSDK-Swift.h</key>
 		<data>
-		rDiDma4WUPHrIm4j/H+5HqaxIHg=
+		OMphiTaELa/dupohfrT789dsdKw=
 		</data>
 		<key>Headers/MorphiiSDK.h</key>
 		<data>
@@ -30,15 +30,15 @@
 		</data>
 		<key>MorphiiSelectionView.nib</key>
 		<data>
-		4yVTQmdZk73mxEVbeM/aDAc5Lo8=
+		fzX4v6wS8rGISG9KB5KNbcStTVI=
 		</data>
 		<key>MultiMorphiiCommentView.nib</key>
 		<data>
-		AQZ5Cq4P90L8qSOkyRK1aJXLNQg=
+		6dlayybz9wkOsv9TSB4GBwHzRwU=
 		</data>
 		<key>MultiMorphiiNoCommentView.nib</key>
 		<data>
-		mkuBwgSbwHVJ1/6DAibPwGjdYBA=
+		AEHQtK6TOgzrFLBOYQZO3iF/NoQ=
 		</data>
 		<key>README.md</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>SingleMorphiiCommentView.nib</key>
 		<data>
-		nIrn0mYTbUUOiYxi8B/ZWVJZhYc=
+		bsC3PYdNfKb2yxG2HoZmvdcJtwk=
 		</data>
 		<key>SingleMorphiiView.nib</key>
 		<data>
-		v9rBAKv8c/RRpc2lcMheZnjPkLA=
+		OMb3/sCAX1TJhYMwEIlzAE1s9Wc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -59,11 +59,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rDiDma4WUPHrIm4j/H+5HqaxIHg=
+			OMphiTaELa/dupohfrT789dsdKw=
 			</data>
 			<key>hash2</key>
 			<data>
-			UsqSjAFsinnqc15wJ6Ft8qsN/+n6w3H7hE0iAYnSJv8=
+			iEfZfrcrVZ/XgfIjMLEuOAh7QVjUMZCA2PB3AwAdAcg=
 			</data>
 		</dict>
 		<key>Headers/MorphiiSDK.h</key>
@@ -114,33 +114,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4yVTQmdZk73mxEVbeM/aDAc5Lo8=
+			fzX4v6wS8rGISG9KB5KNbcStTVI=
 			</data>
 			<key>hash2</key>
 			<data>
-			pKE7JyWk1OgDWcp71ZXgit3I/FP9lUWnPBDcbNX/3Fo=
+			Dym1iYpxdJjcFKD2zVsCKPFicbN/qxGqewsz+vsobsU=
 			</data>
 		</dict>
 		<key>MultiMorphiiCommentView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AQZ5Cq4P90L8qSOkyRK1aJXLNQg=
+			6dlayybz9wkOsv9TSB4GBwHzRwU=
 			</data>
 			<key>hash2</key>
 			<data>
-			grtuDPJ/C6UKegfq+CP5+1waub9v7cm0dmAFnZovIvw=
+			JYnHaAl6O08Uy2AejeyT9XVoGUpkXvne2pVcji+pFzM=
 			</data>
 		</dict>
 		<key>MultiMorphiiNoCommentView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mkuBwgSbwHVJ1/6DAibPwGjdYBA=
+			AEHQtK6TOgzrFLBOYQZO3iF/NoQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			rDWXBKQj9hrGhO+Sjz25DRAtCPjyZ/ZFIEGJ8XGdni8=
+			2HEOHh9eOJPzATpZiUFLxSz3XsRZPTnnKWTMwiO6d9E=
 			</data>
 		</dict>
 		<key>README.md</key>
@@ -158,22 +158,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nIrn0mYTbUUOiYxi8B/ZWVJZhYc=
+			bsC3PYdNfKb2yxG2HoZmvdcJtwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			eKMjxp8MVK27umML8YIoyAP143dmK+J8J7GVTOsOV4E=
+			joWMVTm/Mb07980/dKSQGgc8EBAXafnCc2o9SBGYT9c=
 			</data>
 		</dict>
 		<key>SingleMorphiiView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v9rBAKv8c/RRpc2lcMheZnjPkLA=
+			OMb3/sCAX1TJhYMwEIlzAE1s9Wc=
 			</data>
 			<key>hash2</key>
 			<data>
-			cxCLMgRvr1VsyIU+87sM6fqi5+Kn/36q3/N3O03Gyas=
+			b2DlKGKoBn7WKBK16IT9HEnAtdsAL1Mh8oTsiu4uvd0=
 			</data>
 		</dict>
 	</dict>
