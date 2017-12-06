@@ -1,25 +1,25 @@
 PODS:
   - Alamofire (4.5.1)
-  - MorphiiSDK (0.0.65):
+  - MorphiiSDK (0.0.67):
     - Alamofire (~> 4.4)
 
 DEPENDENCIES:
-  - MorphiiSDK (from `https://github.com/Vizbii/morphii-sdk-ios.git`, tag `0.0.65`)
+  - MorphiiSDK (from `https://github.com/Vizbii/morphii-sdk-ios.git`, tag `0.0.67`)
 
 EXTERNAL SOURCES:
   MorphiiSDK:
     :git: https://github.com/Vizbii/morphii-sdk-ios.git
-    :tag: 0.0.65
+    :tag: 0.0.67
 
 CHECKOUT OPTIONS:
   MorphiiSDK:
     :git: https://github.com/Vizbii/morphii-sdk-ios.git
-    :tag: 0.0.65
+    :tag: 0.0.67
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  MorphiiSDK: 7a10c8dfb2e02cabe798a492171fa0e847311d3c
+  MorphiiSDK: d1459b0de214a2c47338dc69619acf51147eccb6
 
-PODFILE CHECKSUM: 6e17c8cba3e814875bbefcc0ddd309f8121532d3
+PODFILE CHECKSUM: 10f4a81f917cd5c6c73d94824640cf787489efeb
 
 COCOAPODS: 1.2.0

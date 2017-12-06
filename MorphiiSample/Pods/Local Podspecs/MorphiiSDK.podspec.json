@@ -1,6 +1,6 @@
 {
   "name": "MorphiiSDK",
-  "version": "0.0.65",
+  "version": "0.0.67",
   "summary": "A SDK that allows developers to embed Morphii technology into their native apps.",
   "description": "The MorphiiSDK is a library that allows developers to embed the Morphii technology into their native apps. Morphii can be used to guage peoples reactions and emotions.",
   "homepage": "http://morphii.com/",
@@ -18,7 +18,7 @@
   },
   "source": {
     "git": "https://github.com/Vizbii/morphii-sdk-ios.git",
-    "tag": "0.0.65"
+    "tag": "0.0.67"
   },
   "source_files": [
     "MorphiiSDK",
@@ -37,6 +37,6 @@
     ]
   },
   "pod_target_xcconfig": {
-    "SWIFT_VERSION": "3"
+    "SWIFT_VERSION": "4"
   }
 }
