@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MorphiiSDK"
-  s.version      = "0.0.67"
+  s.version      = "0.0.70"
   s.summary      = "A SDK that allows developers to embed Morphii technology into their native apps."
 
   # This description is used to generate tags and improve search results.
@@ -77,7 +77,7 @@ Pod::Spec.new do |s|
   #
 #  s.source       = { :path => '.' }
 
-  s.source       = { :git => "https://github.com/Vizbii/morphii-sdk-ios.git", :tag => "0.0.67" }
+  s.source       = { :git => "https://github.com/Vizbii/morphii-sdk-ios.git", :tag => "0.0.70" }
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
