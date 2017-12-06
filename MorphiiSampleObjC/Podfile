@@ -6,7 +6,7 @@ target 'MorphiiSampleObjC' do
   use_frameworks!
 
   # Pods for MorphiiTest
-  pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.67'
+  pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.70'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
