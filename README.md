@@ -1,6 +1,6 @@
 ![Morphii SDK](https://d24bblcmguio2o.cloudfront.net/content/images/logo-black-color@3x.png)
 
-# Morphii SDK
+# Morphii SDK (version 2)
 
 ## What It Is
 The Morphii SDK provides developers with the ability to add a morphii technology to iOS native apps. Morphii allows the user to manipulate the type and intensity of the emotion. There are several different morphiis to allow for a full range of possible emotions. The developer also has the option to include a comment section along with the morphii. The developer then can gather pertinent information from the user's interaction with the morphiis to use for analytical purposes. For more information see the [Morphii Site](http://morphii.com).
@@ -12,17 +12,22 @@ The Morphii SDK provides developers with the ability to add a morphii technology
 - Xcode 8.+
 - Minimum deployment target of 10.2
 
-### Project Setup
+
+### Manual Project Setup
 1. Create a new project in Xcode.
-2. Open terminal
-3. Navigate to your project's directory
-4. If you are not already using cocoapods, run pod init
-5. Add the following to your podfile
-```
-pod 'MorphiiSDK', :git => 'https://github.com/Vizbii/morphii-sdk-ios.git', :tag => '0.0.71'
-```
-6. Run pod install
-7. Add import MorphiiSDK wherever you would like to utilize the SDK
+2. Include the MorphiiSDK.framework File in the top of the projects directory
+3. Go to the projects target settings in Xcode
+4. Add the MorphiiSDK.framework to the 'Embedded Binaries' list
+5. Add the MorphiiSDK.framework to the 'Linked Frameworks and Libraries' list
+6. Add import MorphiiSDK wherever you would like to utilize the SDK
+
+### Project Settings
+If building for a device there is a setting, 'GPU Frame Capture' that must be disabled in Xcode after the project has been created in order for the morphiis to run.
+1. In Xcode, open Product from the toolbar
+2. Navigate to Scheme then Edit Scheme
+3. Open the Run Side Bar
+4. Click to the 'Options' tab
+5. Set GPU Frame Capture to disabled.
 
 
 ## Importing
@@ -42,10 +47,7 @@ import MorphiiSDK
 ### <a name="morphiiservice"></a>MorphiiService
 The MorphiiService class is the main class the developer will work with. This class holds methods for authentication, adding a MorphiiView, and submitting data to receive the Result Records, which contains the data of user inputs. All MorphiiService methods will be called from a sharedInstance object. Example:
 
-#### Authenticate
-`public func authenticate (username:String, password:String, accountId:String, completion:@escaping (_ results:MorphiiSDK.AuthenticationResults)->Void)`
-
-This method authenticates the developer's account with the morphii servers. It requires a `username`, `password`, `account ID`. The completion returns an [AuthenticationResults](#authenticationresults) object. The `authenticate` method must successfully authenticate the user before any other SDK method is used. It is recommended to run a check to ensure the authentication results did not return an `error` object and `isAuthenticated` is true. If there is an error the `error` object contains a `code` and `message` to give insight to the developer as to what went wrong. If there is no error and the authentication was successful then it is recommended to add any MorphiiViews inside this callback.
+When instantiating a MorphiiService object be sure to set the API Key and Account ID
 
 ```swift
 // Swift
@@ -53,18 +55,7 @@ override func viewDidLoad() {
   super.viewDidLoad()
   // Do any additional setup after loading the view, typically from a nib.
 
-  let service = MorphiiService.sharedInstance()
-  service.authenticate(username: "user_name", password: "password", accountId: "account-id") { (result) in
-    if result.isAuthenticated {
-      // Authentication successful.
-      // Add morphii views.
-    }
-    else {
-      print("Authentication failed")
-      print("error code: \(result.error?.code)")
-      print("error message: \(result.error?.message)")
-    }
-  }
+  let service = MorphiiService.sharedInstance()  
 }
 ```
 
@@ -75,20 +66,110 @@ override func viewDidLoad() {
   [super viewDidLoad];
 
   MorphiiService *service = [MorphiiService sharedInstance];
-  [service authenticateWithUsername:@"user_name" password:@"password" accountId:@"account-id" completion:^(AuthenticationResults * _Nonnull results) {
-    if (results.isAuthenticated) {
-      // Authentication successful.
-      // Add morphii views.
-    }
-    else {
-      // There was an error.
-      NSLog(@"Error authenticating");
-      NSLog(@"error code: %@", results.error.code);
-      NSLog(@"error message: %@", results.error.message);
-    }
-  }];
 }
 ```
+
+#### Set APIKey and AccountId*
+
+`public func setAPIKey("inoawqT0Qc85MgynAGbKsromLgMXyt028Ynlj3vb", accountId:"17744669")`
+
+Or
+
+`public func setAPIKey("inoawqT0Qc85MgynAGbKsromLgMXyt028Ynlj3vb", accountId:"17744669", withSubAccountID: "test-sub-id", andSubAccountName: "test-sub-name")`
+
+
+This method adds an API Key and account Id to the MorphiiService. The first method requires two parameters: a `APIKey` and an `AccountId` . Developers also have the option of attaching a sub account to the MorphiiService. This method requires four parameters: `APIKey` , `AccountId` , `SubAccountID` , and `SubAccountName`. Setting the API key and account Id  [Is Required](#isrequired) and allows the MorphiiService to complete necessary service calls.
+
+```swift
+// Swift
+override func viewDidLoad() {
+super.viewDidLoad()
+// Do any additional setup after loading the view, typically from a nib.
+
+let service = MorphiiService.sharedInstance()
+
+service?.setAPIKey("inoawqT0Qc85MgynAGbKsromLgMXyt028Ynlj3vb", accountId: "17744669")
+//Or
+service?.setAPIKey("inoawqT0Qc85MgynAGbKsromLgMXyt028Ynlj3vb", accountId: "17744669", withSubAccountID: "test-sub-id", andSubAccountName: "test-sub-name")
+}
+```
+
+
+```objective-c
+// Objective-C
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    MorphiiService *service = [MorphiiService sharedInstance];
+
+    [service setAPIKey:@"inoawqT0Qc85MgynAGbKsromLgMXyt028Ynlj3vb" accountId:@"17744669"];
+    //Or
+    [service setAPIKey:@"inoawqT0Qc85MgynAGbKsromLgMXyt028Ynlj3vb" accountId:@"17744669" withSubAccountID:@"test-sub-id" andSubAccountName:@"test-sub-name"];
+}
+```
+
+#### MorphiiServiceDelegate
+
+The `MorphiiServiceDelegate` provides developers with feedback from the Morphii framework. It consists of three methods that return different various data and views.  These methods are linked to the [MorphiiService] methods `addBasicView(withResponse:...`, `addSelectionView(withResponse:...` and `getMorphiisAsArray...`. The developer must first have their class subscribe to be a delegate or extension of the MorphiiServiceDelegate (called  `serviceDelegate`), this allows the class to access the methods linked to the methods mentioned previously. Once a class has been defined as a delegate or extension of the `MorphiiServiceDelegate`, the user can use the above methods and responses for these methods will be returned in delegate/response methods. These delegate/response methods are: `morphiiBasicViewAdded(_ basicView: BasicView)`, `morphiiSelectionViewAdded(_ morphiiSelectionView: MorphiiSelectionView)`, and `morphiiArrayReceived(_ morphiis: [Any]!)`.  Having these delegate methods available to the developer allows her/him to do things like display a progress loading bar in between calling for a Morphii and showing it on the screen. These delegate methods are shown below. Again, to use these methods in a class the developer must first define that class as the MorphiiServiceDelegate then implement the necessary delegate methods inside that class. Ex.
+
+```swift
+// Swift
+override func viewDidLoad() {
+super.viewDidLoad()
+// Do any additional setup after loading the view, typically from a nib.
+
+let service = MorphiiService.sharedInstance()
+service.serviceDelegate = self
+}
+
+extension ViewController:MorphiiServiceDelegate {
+    func morphiiSelectionViewAdded(_ morphiiSelectionView: MorphiiSelectionView) { // A Morphii selectionView is returned
+        self.containerView.addSubview(morphiiSelectionView)
+        print("Selection View Added")
+    }   
+    func morphiiBasicViewAdded(_ basicView: BasicView) { // A Morphii BasicView is returned
+        self.basicView = basicView
+        containerView2.addSubview(self.basicView!)
+        print("Basic View Added")
+    }
+    func morphiiArrayReceived(_ morphiis: [Any]!) { // An array of Morphii objects is returned
+        print(morphiis as! [Morphii])
+    }
+}
+```
+
+
+```objective-c
+// Objective-C
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    MorphiiService *service = [MorphiiService sharedInstance];
+    service.serviceDelegate = self;
+}
+
+
+//In Objective-C the developer must implement these methods individually.
+- (void) morphiiSelectionViewAdded:(MorphiiSelectionView *)morphiiSelectionView  // A Morphii selectionView is returned
+{
+    [[self selectionView] addSubview:morphiiSelectionView];
+}
+
+- (void) morphiiBasicViewAdded:(BasicView *)basicView // A Morphii BasicView is returned
+{
+    self.basicView = basicView;
+    [[self containerView] addSubview:self.basicView];
+}
+- (void) morphiiArrayReceived:(NSArray *)morphiis{ // An array of Morphii objects is returned
+
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+
+    _morphiiArray = [NSArray arrayWithArray:morphiis];
+    [_collectionView reloadData];
+}
+
+```
+
 
 #### Add
 `public func add(containerView:UIView, config:BasicViewConfiguration, delegate:BasicViewDelegate?) -> BasicView`
@@ -162,6 +243,96 @@ func createBasicView(containerView: UIView) -> BasicView {
   return basicView;
 }
 ```
+#### Add BasicView With Delegate
+`public func addBasicView(withResponse: containerView, config: config, delegate: MorphiiServiceDelegate)`
+
+This method adds a [BasicView](#basicview) to the specified container layout with a callback . The method requires one parameter: a `basicViewConfiguration`. To create an instance of [BasicViewConfiguration](#basicviewconfiguration) you will need to create a number of supporting classes to pass into the configuration as parameters. Check the Supporting Classes section for more information. The `add` method will callback to the delegate method `func morphiiBasicViewAdded(_ basicView: BasicView)`.
+
+This delegate method exists as part of the MorphiiServiceDelegate extension.
+
+```swift
+// Swift
+func createBasicView(containerView: UIView) -> BasicView {
+
+    // Create Project
+    let project = Project(id: "my-project-id", description: "My Project Description")
+
+    // Create Target
+    let metadata: NSDictionary? = ["value-1" : "key1", "value-2" : "key2"]
+    let target = Target(id: "my-target-id", type: "question", metadata: metadata)
+
+    // Options configuration
+    let options = Options(stage: "live", initialIntensity: 0.5)
+
+    // Comment configuration
+    let comment = Comment(show: false, required: false, maxLength: 100, label: "Comment", hintText: "Enter comment")
+
+    // Create User
+    let properties: NSDictionary? = ["user@mailinator.com" : "email", "value-2" : "key2", "value-3" : "key3"]
+    let user = User(id: "user-id", type: "external", properties: properties)
+
+    // Morphii configuration.
+    let morphiiConfig = MorphiiConfiguration(showName: true)
+    morphiiConfig.add(id: "6202184382145363968", name: nil, weight: 1)
+
+    // Create the BasicViewConfiguration and add to the service.
+    let config = BasicViewConfiguration(morphiiConfig: morphiiConfig, target: target, project: project, comment: comment, options: options, user: user)
+
+    let service = MorphiiService.sharedInstance()
+    service?.addBasicView(withResponse: containerView, config: config, delegate: self)// Adding basicView With Response. will return Basicview to morphiiBasicViewAdded Method
+    //Developer can display loading screen here
+
+}
+
+extension ViewController:MorphiiServiceDelegate {
+
+    func morphiiBasicViewAdded(_ basicView: BasicView) { // BasicView is Returned Here.
+        //Developer can hide loading screen here
+        self.basicView = basicView
+        containerView2.addSubview(self.basicView!)
+        print("Basic View Added")
+    }
+}
+
+```
+
+```objective-c
+// Objective-C
+-(BasicView*)createBasicView: (UIView *)container {
+
+    // Project information
+    Project *project = [[Project alloc] initWithId:@"my-project-id" description:@"My project description"];
+
+    // Target info
+    NSDictionary *metadata = @{@"value-1":@"key1", @"value-2":@"key2"};
+    Target *target = [[Target alloc] initWithId:@"my-target-id" type:@"question" metadata:metadata];
+
+    // Options info
+    Options *options = [[Options alloc] initWithStage:@"live" initialIntensity:0.5];
+
+    // Comment info
+    Comment *comment = [[Comment alloc] initWithShow:NO required:NO maxLength:100 label:@"Comment" hintText:@"Enter comment"];
+
+    // User data
+    NSDictionary *properties = @{@"user.name@mailinator.com":@"email", @"value-2":@"key2", @"value-3":@"key3"};
+    User *user = [[User alloc] initWithId:@"user-id" type:@"external" properties:properties];
+
+    // Morphii information
+    MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
+    [morphiiConfig addWithId:@"6202184382145363968" name:nil weight:1];
+
+    BasicViewConfiguration *config = [[BasicViewConfiguration alloc] initWithMorphiiConfig:morphiiConfig target:target project:project comment:comment options:options user:user];
+
+    MorphiiService *service = [MorphiiService sharedInstance];    
+    [service addBasicViewWithResponse:[self containerView] config:config delegate:self]; // Adding basicView With Response. will return Basicview to morphiiBasicViewAdded Method
+}
+- (void) morphiiBasicViewAdded:(BasicView *)basicView // BasicView is Returned Here.
+{
+    //Developer can hide loading screen here
+    self.basicView = basicView;
+    [[self containerView] addSubview:self.basicView];
+}
+```
 
 #### <a name="addselectionview"></a>AddSelectionView
 `public func addSelectionView (initialIntensity:Double, config:MorphiiConfiguration, delegate:MorphiiSelectionViewDelegate) -> MorphiiSelectionView?`
@@ -194,11 +365,108 @@ func createSelectionView() -> MorphiiSelectionView? {
 }
 ```
 
+#### <a name="addselectionview"></a>AddSelectionView With Delegate
+
+`public func addSelectionView(withResponse: 1.0, config: morphiiConfig, delegate: MorphiiServiceDelegate) `
+
+This method retreives a morphiiSelectionView and returns it in a callback delegate method `morphiiSelectionViewAdded(_ morphiiSelectionView: MorphiiSelectionView)` . This method requires three parameters: `initialIntensity`, `MorphiiConfiguration`, and `MorphiiServiceDelegate`. The `MorphiiConfiguration` is an instance of the [MorphiiConfiguration](#morphiiconfiguration) object that configures how the morphii will be displayed. The `initialIntensity` is a Double that determines the starting intensity for the rendered morphiis. The `MorphiiSelectionViewDelegate` returns the `MorphiiConfiguration` of the selected morphii that can be used to create a new `BasicViewConfiguration` that can be used to add a new `BasicView` to allow the user to manipulate and utilize the selected morphii.
+
+```swift
+// Swift
+func createSelectionView() -> MorphiiSelectionView? {
+    let service = MorphiiService.sharedInstance()
+
+    let morphiiConfig = MorphiiConfiguration(showName: true)
+    morphiiConfig.add(id: "6202185104333209600", name: nil, weight: 1)
+    morphiiConfig.add(id: "6202185110939238400", name: nil, weight: 2)
+    service.addSelectionView(withResponse: 1.0, config: morphiiConfig, delegate: self) //Adding selectionView with response to be returned in morphiiSelectionViewAdded
+}
+
+extension ViewController:MorphiiServiceDelegate {
+    func morphiiSelectionViewAdded(_ morphiiSelectionView: MorphiiSelectionView) { // SelectionView is returned here to be added to view
+        self.containerView.addSubview(morphiiSelectionView)
+        print("Selection View Added")
+    }
+}
+```
+
+```objective-c
+// Objective-C
+-(MorphiiSelectionView*)createSelectionView {
+    MorphiiService *service = [MorphiiService sharedInstance];   
+
+    MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
+    [morphiiConfig addWithId:@"6202185104333209600" name:nil weight:1];
+    [morphiiConfig addWithId:@"6202185110939238400" name:nil weight:2];
+
+    [service addSelectionViewWithResponse:1.0 config:morphiiConfig delegate:self]; //Adding selectionView with response to be returned in morphiiSelectionViewAdded
+
+}
+
+- (void) morphiiSelectionViewAdded:(MorphiiSelectionView *)morphiiSelectionView // SelectionView is returned here to be added to view
+{
+    [[self selectionView] addSubview:morphiiSelectionView];
+}
+
+```
+
+
+
+#### Get Morphiis As Array
+
+`public func getMorphiisAsArray(MorphiiConfiguration, withSize: Int, intensity: double) `
+
+This method retrieves an array of morphiis and returns them in a callback delegate method `morphiiArrayReceived:(NSArray *)morphiis` . This method has three parameters: `MorphiiConfiguration`(which Morphiis to include),  `Size` (size of morphii Image as square ex. 110 would be considered 110x110), and `Intensity` (intensity at which the morphiis will show up).
+
+```swift
+// Swift
+func createBasicView(containerView: UIView) -> BasicView {
+
+    // Morphii configuration.
+    let morphiiConfig = MorphiiConfiguration(showName: true)
+    morphiiConfig.add(id: "6202184382145363968", name: nil, weight: 1)
+
+    // Create the BasicViewConfiguration and add to the service.
+    let config = BasicViewConfiguration(morphiiConfig: morphiiConfig, target: target, project: project, comment: comment, options: options, user: user)
+
+    let service = MorphiiService.sharedInstance()
+    service?.getMorphiisAsArray(morphiiConfig, withSize: 225, intensity: 1.0) //Array of Morphii objects will be returned in morphiiArrayReceived
+
+}
+
+extension ViewController:MorphiiServiceDelegate {
+
+    func morphiiArrayReceived(_ morphiis: [Any]!) { //Morphii array is returned here
+        print(morphiis as! [Morphii])
+    }
+}
+```
+
+```objective-c
+// Objective-C
+-(BasicView*)createBasicView: (UIView *)container {
+
+    // Morphii information
+    MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
+    [morphiiConfig addWithId:@"6202184382145363968" name:nil weight:1];
+
+    MorphiiService *service = [MorphiiService sharedInstance];    
+    [service getMorphiisAsArray:morphiiConfig withSize:115 intensity:1.0];  //Array of Morphii objects will be returned in morphiiArrayReceived
+}
+
+- (void) morphiiArrayReceived:(NSArray *)morphiis{ //Morphii array is returned here
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+
+    _morphiiArray = [NSArray arrayWithArray:morphiis];
+    [_collectionView reloadData];
+}
+```
 
 #### Submit
 `public func submit (completion:@escaping ([ReactionResultRecord]) -> Void)`
 
-This method submits data from all `BasicView`s currently in the app, if they have not been submitted already. The completion will pass back an `[ReactionResultRecord]`. This `Array` contains a [ReactionResultRecord](#reactionresultrecord) for each `BasicView` that was submitted with the method.
+This method submits data from all `BasicView`s currently in the app. The completion will pass back an `[ReactionResultRecord]`. This `Array` contains a [ReactionResultRecord](#reactionresultrecord) for each `BasicView` that was submitted with the method. The ReactionResultRecord also includes links to the png image of the Morphii at the intensity of which it was submitted.
 
 ```swift
 //Swift
@@ -407,27 +675,6 @@ func submit() {
 }
 ```
 
-#### <a name="png"></a>PNG
-`public func png (size:CGSize) -> UIImage?`
-
-This method returns a `UIImage` of the morphii in a specified `BasicView`. The view must be submitted before this method will return the image.
-
-```swift
-// Swift
-func getPng() {
-  imageView.image = basicView?.png(size: CGSize(width: 60, height: 60))
-}
-```
-
-```objective-c
-// Objective-C
-- (void)getPng {
-  UIImage *image = [_basicView pngWithSize:CGSizeMake(60, 60)];    
-  [_imageView setImage: image];
-}
-```
-
-
 #### <a name="reset"></a>Reset
 `public func reset (comment:Bool)`
 
@@ -532,6 +779,20 @@ let options = Options(stage: "live", initialIntensity: 0.5)
 // Options configuration
 Options *options = [[Options alloc] initWithStage:@"live" initialIntensity:0.5];
 ```
+#### <a name="applicationInformation"></a>Application Information
+This optional class is used to define additional information about the application/project using the MorphiiSDK. It requires four parameters: `name` , `description`, `version` , and `properties` . The `name` , `description`, and `version` parameters are all Strings. The `properties` parameter is a dictionary that can contain any developer defined information. This object is used to construct the [BasicViewConfiguration](#basicviewconfiguration).
+
+```swift
+// Swift
+// Application Information
+let appInfo = ApplicationInformation(name: "Test App", description: "Test App Desc", version: "1.0", andProperties: nil)
+```
+
+```objective-c
+// Objective-C
+// Application Information
+ApplicationInformation* appInfo = [[ApplicationInformation alloc] initWithName:@"Test App" description:@"Test App Desc" version:@"1.0" andProperties:nil];
+```
 
 #### <a name="morphiiconfiguration"></a>MorphiiConfiguration
 This class is used to define the default configuration of the morphii. The `MorphiiConfiguration` object takes one parameter: `showName`. This parameter is a boolean that when true, will display the name below the morphii. When false the name will not be shown. After creating a `MorphiiConfiguration` object it is necessary to call its `add` method in order to add information to the configuration. The method requires three parameters: `id`, `name`, `weight`. The `id` is a String that determines which morphii will be added. The `name` is a developer defined label for the morphii. This parameter can be defined as `null`. If `null` the default morphii name will be used. The `weight` parameter is an int that is used to assign a weight to the morphii. This object is used to construct the [BasicViewConfiguration](#basicviewconfiguration) and add a [MorphiiSelectionView](#morphiiselectionview).
@@ -556,6 +817,8 @@ MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShow
 #### <a name="basicviewconfiguration"></a>BasicViewConfiguration
 This class defines the [BasicView](#basicview) configuration. It is used to create a new `BasicView`. The object requires six parameters: `morphiiConfiguration`, `target`, `project`, `comment`, `options`, `user`. Reference above for aid in creating these objects.
 
+BasicViewConfiguration now includes the ability to add a slider(either horizontal or vertical) instead of having the user interact with Morphiis with touch gestures as well as the attachment of ApplicationInformation, mentioned previously. To allow users to interact with the MorphiiView using a slider bar, set the showSlider boolean value to true. This adds a horizontal slider bar to the MorphiiView. If you would like to make the slider bar vertical you must have the showSlider boolean value set to true in addition to setting the showSliderVertical boolean value to true.  If the showSliderVertical boolean is set to true but the showSlider boolean is set to false, no slider bar will be presented.  When a slider bar is present, the normal touch gestures of the view will be deactivated.
+
 ```swift
 // Swift
 // Project information
@@ -575,11 +838,17 @@ let comment = Comment(show: true, required: true, maxLength: 100, label: "Post",
 let properties: NSDictionary? = ["user@mailinator.com" : "email", "value-2" : "key2", "value-3" : "key3"]
 let user = User(id: "user-id", type: "external", properties: properties)
 
+// Application configuration
+let appInfo = ApplicationInformation(name: "Test App", description: "Test App Desc", version: "1.0", andProperties: nil)
+
 // Morphii configuration.
 let morphiiConfig = MorphiiConfiguration(showName: true)
 morphiiConfig.add(id: "6202185104333209600", name: nil, weight: 1)
 
 let config = BasicViewConfiguration(morphiiConfig: morphiiConfig, target: target, project: project, comment: comment, options: options, user: user)
+config.application = appInfo
+config.showSlider = true //Setting showSlider to true places a horizontal slider bar on the view by default.
+config.showSliderVertical = true //Setting showSliderVertical to true places a vertical slider bar on the view. showSliderVertical only works when showSlider is also true.
 ```
 
 ```objective-c
@@ -601,11 +870,17 @@ Comment *comment = [[Comment alloc] initWithShow:NO required:NO maxLength:100 la
 NSDictionary *properties = @{@"user.name@mailinator.com":@"email", @"value-2":@"key2", @"value-3":@"key3"};
 User *user = [[User alloc] initWithId:@"user-id" type:@"external" properties:properties];
 
+// Application Information
+ApplicationInformation* appInfo = [[ApplicationInformation alloc] initWithName:@"Test App" description:@"Test App Desc" version:@"1.0" andProperties:nil];
+
 // Morphii information
 MorphiiConfiguration *morphiiConfig = [[MorphiiConfiguration alloc] initWithShowName:YES];
 [morphiiConfig addWithId:@"6202185104333209600" name:nil weight:1];
 
 BasicViewConfiguration *config = [[BasicViewConfiguration alloc] initWithMorphiiConfig:morphiiConfig target:target project:project comment:comment options:options user:user];
+config.application = appInfo;
+config.showSlider = YES; //Setting showSlider to true places a horizontal slider bar on the view by default.
+config.showSliderVertical = YES; //Setting showSliderVertical to true places a vertical slider bar on the view. showSliderVertical only works when showSlider is also true.
 ```
 
 #### <a name="reactionresultrecord"></a>ReactionResultRecord
@@ -719,6 +994,10 @@ This object contains detail information for the morphii associated with the [Rea
 - `displayName: String` : Returns the morphii display name associated with this reaction.
 - `intensity: Double` : Returns the morphii intensity associated with this reaction.
 - `weight: Int` : Returns the morphii weight associated with this reaction.
+- `partName: String` : Returns the current partName of a multi-reaction Morphii.
+- `parts: Array` : Returns the parts title of a multi-reaction Morphii.
+- `urls: Dictionary` : Returns the Morphii image urls.
+
 
 #### <a name="reactioncommentrecord"></a>ReactionCommentRecord
 This object contains detail information for the user entered comment associated with the [ReactionResultRecord](#reactionresultrecord).
@@ -733,19 +1012,3 @@ This object gives further details into any errors that may have occurred during 
 ##### Properties
 - `code: String` : Returns reaction error code string.
 - `message: String` : Returns reaction error message string.
-
-
-#### <a name="authenticationresults"></a>AuthenticationResults
-This object gives further details the authentication results. This object is returned via the authentication callback.
-
-##### Properties
-- `isAuthenticated: Bool` : Returns if the authentication was successful.
-- `error:ReactionError?` : Returns an [AuthenticationError](#authenticationerror) object which contains more details about the authentication error.
-
-
-#### <a name="authenticationerror"></a>AuthenticationError
-This object gives further details into any errors that may have occurred during the authentication process. It contains two properties: `code` and `message`. The `code` property is a specific error code defined by the data analytics pipeline. The `message` property is a message associated with the `code` property that explains what caused the error.
-
-##### Methods
-- `code: String` : This method returns authentication error code string.
-- `message: String` : This method returns authentication error message string.

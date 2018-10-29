@@ -1,6 +1,9 @@
 //
 //  AppDelegate.h
-//  MorphiiSampleObjC
+//  MorphiiSampleObjc
+//
+//  Created by Chris K on 10/18/18.
+//  Copyright © 2018 Xtern Software, Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,3 +14,4 @@
 
 
 @end
+
